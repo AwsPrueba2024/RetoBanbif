@@ -45,6 +45,7 @@ jobs:
         run: terraform apply -auto-approve
  deploy:
     name: Deploy
+    need: terraform
     runs-on: ubuntu-latest
     environment: dev
     steps:
