@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:637423556551:task-definition/app",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:339712708660:task-definition/app",
     "containerDefinitions": [
         {
             "name": "app",
-            "image": "637423556551.dkr.ecr.us-east-1.amazonaws.com/app_repo",
+            "image": "339712708660.dkr.ecr.us-east-1.amazonaws.com/app_repo",
             "cpu": 256,
             "memory": 512,
             "portMappings": [
@@ -20,8 +20,8 @@
         }
     ],
     "family": "app",
-    "taskRoleArn": "arn:aws:iam::637423556551:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::637423556551:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::339712708660:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::339712708660:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
@@ -53,7 +53,7 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2024-02-26T20:56:51.326Z",
-    "registeredBy": "arn:aws:iam::637423556551:root",
+    "registeredAt": "2024-02-26T23:43:52.813Z",
+    "registeredBy": "arn:aws:iam::339712708660:user/user-banbif",
     "tags": []
 }
