@@ -3,3 +3,6 @@ terraform {
     bucket = "buckettfstatebanbif"
     key    = "terraform/terraform.tfstate"
     region = "us-east-1"
+  }
+}
+
