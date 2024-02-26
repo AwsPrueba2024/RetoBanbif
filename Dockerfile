@@ -1,10 +1,15 @@
-FROM adoptopenjdk/openjdk11:x86_64-alpine-jre-11.0.6_10
-RUN apk add --no-cache tzdata
-ENV TZ='America/Lima'
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+#
+# BUILD STAGE
+#
+FROM maven:3.6.0-jdk-11-slim AS build  
+COPY src /usr/src/app/src  
+COPY pom.xml /usr/src/app  
+RUN mvn -f /usr/src/app/pom.xml clean package
 
-WORKDIR /app
-
-COPY target/*.jar application.jar
-
-CMD ["java","-jar","application.jar"]
+#
+# PACKAGE STAGE
+#
+FROM openjdk:11-jre-slim 
+COPY --from=build /usr/src/app/target/demo-0.0.1-SNAPSHOT.jar /usr/app/demo-0.0.1-SNAPSHOT.jar  
+EXPOSE 80
+CMD ["java","-jar","/usr/app/demo-0.0.1-SNAPSHOT.jar"]  
