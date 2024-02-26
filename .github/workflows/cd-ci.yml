@@ -17,8 +17,8 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     env:
-      AWS_ACCESS_KEY_ID: AKIAU6GDUSA2LBSEEOPL
-      AWS_SECRET_ACCESS_KEY: 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
+      AWS_ACCESS_KEY_ID: ${{ secret.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secret.AWS_SECRET_ACCESS_KEY }}
     defaults:
       run:
         working-directory: terraform
