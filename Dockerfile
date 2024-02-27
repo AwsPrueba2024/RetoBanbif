@@ -5,8 +5,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /app
 
-RUN pwd
 
-COPY target/*.jar application.jar
+COPY gs-maven-0.1.0.jar application.jar
 
 CMD ["java","-jar","application.jar"]
