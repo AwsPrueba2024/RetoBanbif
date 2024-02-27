@@ -79,7 +79,7 @@ jobs:
 
  deploy:
     name: Deploy
-    needs: publish
+    needs: terraform
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
