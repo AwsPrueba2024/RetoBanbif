@@ -42,8 +42,7 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-
-  build:
+ build:
 
     runs-on: ubuntu-latest
     needs: terraform
