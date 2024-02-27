@@ -5,6 +5,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /app
 
+RUN ls
+
 COPY target/*.jar application.jar
 
 CMD ["java","-jar","application.jar"]
