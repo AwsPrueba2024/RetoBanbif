@@ -10,6 +10,6 @@ RUN mvn -f /usr/src/app/pom.xml clean package
 # PACKAGE STAGE
 #
 FROM openjdk:11-jre-slim 
-COPY --from=build /usr/src/app/target/demo-0.0.1-SNAPSHOT.jar /usr/app/demo-0.0.1-SNAPSHOT.jar  
+COPY --from=build /usr/src/app/target/maigolab_hello-1.0.0.jar /usr/app/maigolab_hello-1.0.0.jar 
 EXPOSE 80
 CMD ["java","-jar","/usr/app/maigolab_hello-1.0.0.jar"]  
