@@ -65,8 +65,8 @@ jobs:
         cd target
         ls -la 
 
-    - name: Checkout
-      uses: actions/checkout@v3
+        #- name: Checkout
+        #uses: actions/checkout@v3
 
 
     - name: Configure AWS credentials
