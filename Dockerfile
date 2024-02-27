@@ -4,7 +4,6 @@ RUN apk add --update ttf-dejavu
 RUN apk add --no-cache tzdata
 ENV TZ='America/Lima'
 
-WORKDIR /app
 
 COPY target/*.jar app.jar
 
