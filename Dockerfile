@@ -1,17 +1,10 @@
-# Use an official Maven image as the base image
-FROM maven:3.8.4-openjdk-11-slim AS build
-# Set the working directory in the container
+FROM adoptopenjdk/openjdk11:x86_64-alpine-jre-11.0.6_10
+RUN apk add --no-cache tzdata
+ENV TZ='America/Lima'
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 WORKDIR /app
-# Copy the pom.xml and the project files to the container
-COPY pom.xml .
-COPY src ./src
-# Build the application using Maven
-RUN mvn clean package -DskipTests
-# Use an official OpenJDK image as the base image
-FROM openjdk:11-jre-slim
-# Set the working directory in the container
-WORKDIR /app
-# Copy the built JAR file from the previous stage to the container
-COPY - from=build /app/target/application.jar .
-# Set the command to run the application
-CMD ["java", "-jar", "application.jar"]
+
+COPY target/*.jar application.jar
+
+CMD ["java","-jar","application.jar"]
