@@ -1,9 +1,11 @@
-FROM maven:3.9.6-eclipse-temurin-17-alpine as build
+FROM openjdk:17-alpine
 COPY . .
-RUN mvn clean package
+RUN apk add --update ttf-dejavu
+RUN apk add --no-cache tzdata
+ENV TZ='America/Lima'
 
-FROM eclipse-temurin:17-jdk-alpine
-VOLUME /tmp
-COPY --from=build /target/*.jar  app.jar
-EXPOSE 80
-ENTRYPOINT ["java","-jar","/app.jar"]
+WORKDIR /app
+
+COPY target/*.jar app.jar
+
+CMD ["java","-jar","application.jar"]
